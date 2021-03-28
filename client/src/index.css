@@ -1,0 +1,24 @@
+@import 'semantic-ui-css/semantic.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+
+body {
+  background-color: #dff4f5;
+}
+
+#logo {
+  font-family: 'Train One', cursive;
+  font-size: 1.5rem;
+}
+
+.form-segment {
+  margin: 1rem;
+}
+
+.required,
+.error {
+  color: #db2828;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}

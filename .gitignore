@@ -1,0 +1,5 @@
+.env
+mysql/*
+!mysql/.gitkeep
+redisinsight/*
+!redisinsight/.gitkeep
