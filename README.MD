@@ -1,4 +1,4 @@
-# Invoicely PDF Generator
+# Invoicely
 
 #### Purpose
 
