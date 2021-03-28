@@ -1,4 +1,4 @@
-# Invoice to PDF
+# Invoicely PDF Generator
 
 #### Purpose
 
@@ -13,4 +13,4 @@ This application is used to quickly generate PDF invoices. Users who sign up wil
 
 #### Tech Stack
 
-Laravel, React (with Typescript and MobX), MySQL, Nginx, Redis, Elasticsearch
+Laravel, React (with Typescript and MobX), MySQL, Nginx, Redis, Elasticsearch, Docker
