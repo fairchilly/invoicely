@@ -30,7 +30,7 @@ const ItemsForm = ({ items }: Props) => {
                   />
 
                   <NumberInput
-                    label='Units/Hours'
+                    label='Quantity'
                     placeholder='3.5'
                     name={`items[${index}].units`}
                     pattern='^\d*(\.\d{0,2})?$'
@@ -40,7 +40,7 @@ const ItemsForm = ({ items }: Props) => {
                   />
 
                   <NumberInput
-                    label='Price Per Unit/Hour'
+                    label='Price Per Unit'
                     placeholder='20'
                     name={`items[${index}].pricePerUnit`}
                     pattern='^\d*(\.\d{0,2})?$'
@@ -60,6 +60,7 @@ const ItemsForm = ({ items }: Props) => {
                       description: '',
                       units: 0,
                       pricePerUnit: 0,
+                      rank: items.length + 1,
                     })
                   }
                 >

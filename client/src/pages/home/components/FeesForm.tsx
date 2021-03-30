@@ -66,6 +66,7 @@ const FeesForm = ({ fees }: Props) => {
                       description: '',
                       value: 0,
                       type: '',
+                      rank: fees.length + 1,
                     })
                   }
                 >

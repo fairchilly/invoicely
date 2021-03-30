@@ -12,4 +12,5 @@ export interface Invoice {
   customer: Customer;
   items: Item[];
   fees: Fee[];
+  comments: string;
 }

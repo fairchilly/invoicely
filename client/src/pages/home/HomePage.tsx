@@ -11,6 +11,8 @@ import ItemsForm from './components/ItemsForm';
 import FeesForm from './components/FeesForm';
 import { observer } from 'mobx-react-lite';
 import { Invoice } from '../../models/invoice';
+import axios from 'axios';
+import CommentForm from './components/CommentForm';
 
 const invoice: Invoice = {
   id: uuid(),
@@ -43,9 +45,11 @@ const invoice: Invoice = {
       description: '',
       units: 0,
       pricePerUnit: 0,
+      rank: 1,
     },
   ],
-  fees: [{ id: uuid(), description: '', value: 0, type: '' }],
+  fees: [{ id: uuid(), description: '', value: 0, type: '', rank: 1 }],
+  comments: '',
 };
 
 const validationSchema = Yup.object({
@@ -71,12 +75,42 @@ const validationSchema = Yup.object({
       type: Yup.string().required('The fee type is required'),
     })
   ),
-  invoiceNumber: Yup.date().required('The invoice number is required'),
+  invoiceNumber: Yup.string().required('The invoice number is required'),
   issuedDate: Yup.date().required('The issued date is required'),
   dueDate: Yup.string().required('The due date is required'),
 });
 
-const handleFormSubmit = (invoice: Invoice) => {};
+const handleFormSubmit = (invoice: Invoice) => {
+  // Updated items and fees to multiples of 100
+  invoice.items = invoice.items.map((item) => {
+    item.pricePerUnit = item.pricePerUnit * 100;
+    return item;
+  });
+
+  invoice.fees = invoice.fees.map((fee) => {
+    if (fee.type === 'price') {
+      fee.value = fee.value * 100;
+    }
+    return fee;
+  });
+
+  axios
+    .post('http://localhost/api/invoices/generate', invoice, {
+      responseType: 'blob',
+    })
+    .then((response) => {
+      if (response.data === null) {
+        console.log('There was an error');
+      } else {
+        const file = new Blob([response.data], { type: 'application/pdf' });
+        const fileURL = URL.createObjectURL(file);
+        window.open(fileURL);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 const HomePage = () => {
   return (
@@ -94,6 +128,7 @@ const HomePage = () => {
             <InvoiceForm />
             <ItemsForm items={values.items} />
             <FeesForm fees={values.fees} />
+            <CommentForm />
             <Button
               primary
               fluid

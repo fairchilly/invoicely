@@ -3,4 +3,5 @@ export interface Fee {
   description: string;
   value: number;
   type: string;
+  rank: number;
 }

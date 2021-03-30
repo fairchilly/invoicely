@@ -3,4 +3,5 @@ export interface Item {
   description: string;
   units: number;
   pricePerUnit: number;
+  rank: number;
 }
