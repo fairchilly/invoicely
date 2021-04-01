@@ -1,0 +1,7 @@
+.dockerignore
+client/node_modules
+client/npm-debug.log
+client/build
+client/**/.git
+client/**/.DS_Store
+client/**/node_modules

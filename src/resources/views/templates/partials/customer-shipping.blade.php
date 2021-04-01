@@ -3,24 +3,24 @@
     <b>SHIP TO</b>
   </p>
   <p class="size-4">{{ $customer->name }}</p>
-  @if($customer->street)
-    <p class="size-4">{{ $customer->street }}</p>
+  @if($customer->shippingStreet)
+    <p class="size-4">{{ $customer->shippingStreet }}</p>
   @endif
-  @if($customer->city && $customer->stateProvince)
+  @if($customer->shippingCity && $customer->shippingStateProvince)
     <p class="size-4">
-      {{ $customer->city }}, {{ $customer->stateProvince }}
-      @if($customer->zipPostal)
-        {{ $customer->zipPostal }}
+      {{ $customer->shippingCity }}, {{ $customer->shippingStateProvince }}
+      @if($customer->shippingZipPostal)
+        {{ $customer->shippingZipPostal }}
       @endif
     </p>
   @endif
-  @if($customer->country)
-    <p class="size-4">{{ $customer->country }}</p>
+  @if($customer->shippingCountry)
+    <p class="size-4">{{ $customer->shippingCountry }}</p>
   @endif
-  @if($customer->phone)
-    <p class="size-4">{{ $customer->phone }}</p>
+  @if($customer->shippingPhone)
+    <p class="size-4">{{ $customer->shippingPhone }}</p>
   @endif
-  @if($customer->email)
-    <p class="size-4">{{ $customer->email }}</p>
+  @if($customer->shippingEmail)
+    <p class="size-4">{{ $customer->shippingEmail }}</p>
   @endif
 </div>

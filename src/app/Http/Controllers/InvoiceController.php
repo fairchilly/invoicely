@@ -28,15 +28,19 @@ class InvoiceController extends Controller
         return $pdf->stream();
     }
 
-    public function test()
+    public function random()
     {
-        $invoice = Invoice::with('company')
-            ->with('customer')
-            ->with('items')
-            ->with('fees')
-            ->first();
+        $invoice = Invoice::all()->random();
 
         $pdf = PDF::loadView('templates.default', ['invoice' => $invoice]);
         return $pdf->stream();
+    }
+
+    public function list()
+    {
+        return Invoice::with('customer')
+            ->with('company')
+            ->get()
+            ->toJson();
     }
 }

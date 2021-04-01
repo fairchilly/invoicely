@@ -3,24 +3,18 @@
     <b>BILL TO</b>
   </p>
   <p class="size-4">{{ $customer->name }}</p>
-  @if($customer->street)
-    <p class="size-4">{{ $customer->street }}</p>
+  @if($customer->billingStreet)
+    <p class="size-4">{{ $customer->billingStreet }}</p>
   @endif
-  @if($customer->city && $customer->stateProvince)
+  @if($customer->billingCity && $customer->billingStateProvince)
     <p class="size-4">
-      {{ $customer->city }}, {{ $customer->stateProvince }}
-      @if($customer->zipPostal)
-        {{ $customer->zipPostal }}
+      {{ $customer->billingCity }}, {{ $customer->billingStateProvince }}
+      @if($customer->billingZipPostal)
+        {{ $customer->billingZipPostal }}
       @endif
     </p>
   @endif
-  @if($customer->country)
-    <p class="size-4">{{ $customer->country }}</p>
-  @endif
-  @if($customer->phone)
-    <p class="size-4">{{ $customer->phone }}</p>
-  @endif
-  @if($customer->email)
-    <p class="size-4">{{ $customer->email }}</p>
+  @if($customer->billingCountry)
+    <p class="size-4">{{ $customer->billingCountry }}</p>
   @endif
 </div>

@@ -2,12 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
 
 body {
-  background-color: #dff4f5;
+  background-color: #f2f2f2;
 }
 
 #logo {
   font-family: 'Train One', cursive;
   font-size: 1.5rem;
+}
+
+.logo-big {
+  font-family: 'Train One', cursive !important;
+  color: white !important;
+  font-size: 2.5rem !important;
 }
 
 .form-segment {
@@ -21,4 +27,25 @@ body {
 
 .react-datepicker-wrapper {
   width: 100%;
+}
+
+.bg-black {
+  background-color: black !important;
+  padding: 4rem !important;
+}
+
+.font-white {
+  color: white !important;
+}
+
+.pt-1 {
+  padding-top: 1rem;
+}
+
+.pt-2 {
+  padding-top: 2rem;
+}
+
+.pt-3 {
+  padding-top: 3rem;
 }

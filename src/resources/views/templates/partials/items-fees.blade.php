@@ -9,8 +9,8 @@
     <tr>
       <td>{{ $item->description }}</td>
       <td class="text-center">{{ $item->units }}</td>
-      <td class="text-right">{{ formatCurrency($item->pricePerUnit) }}</td>
-      <td class="text-right">{{ formatCurrency($item->units * $item->pricePerUnit) }}</td>
+      <td class="text-right">{{ formatCurrency($item->price_per_unit) }}</td>
+      <td class="text-right">{{ formatCurrency($item->units * $item->price_per_unit) }}</td>
     </tr>
   @endforeach
   <tr>

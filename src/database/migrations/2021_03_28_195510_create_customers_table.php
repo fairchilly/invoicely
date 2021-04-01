@@ -15,15 +15,19 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('invoice_id');
             $table->string('name');
-            $table->string('street')->nullable();
-            $table->string('city')->nullable();
-            $table->string('stateProvince')->nullable();
-            $table->string('country')->nullable();
-            $table->string('zipPostal')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
+            $table->string('shippingStreet')->nullable();
+            $table->string('shippingCity')->nullable();
+            $table->string('shippingStateProvince')->nullable();
+            $table->string('shippingCountry')->nullable();
+            $table->string('shippingZipPostal')->nullable();
+            $table->string('shippingPhone')->nullable();
+            $table->string('shippingEmail')->nullable();
+            $table->string('billingStreet')->nullable();
+            $table->string('billingCity')->nullable();
+            $table->string('billingStateProvince')->nullable();
+            $table->string('billingCountry')->nullable();
+            $table->string('billingZipPostal')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

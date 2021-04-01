@@ -17,7 +17,6 @@ class Company extends Model
 
     protected $fillable = [
         'id',
-        'invoice_id',
         'name',
         'street',
         'city',
@@ -28,8 +27,8 @@ class Company extends Model
         'email',
     ];
 
-    public function post()
+    public function invoices()
     {
-        return $this->belongsTo(Invoice::class);
+        return $this->hasMany(Invoice::class);
     }
 }

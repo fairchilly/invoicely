@@ -18,7 +18,7 @@ class CreateItemsTable extends Migration
             $table->string('invoice_id');
             $table->string('description');
             $table->integer('units');
-            $table->integer('pricePerUnit');
+            $table->integer('price_per_unit');
             $table->integer('rank');
             $table->timestamps();
             $table->softDeletes();

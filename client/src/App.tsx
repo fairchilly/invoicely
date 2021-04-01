@@ -1,16 +1,24 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
-import TopNav from './common/TopNav';
-import HomePage from './pages/home/HomePage';
+import { Route } from 'react-router';
+import NoSideNavLayout from './layouts/NoSideNavLayout';
+import CreatePage from './pages/create/CreatePage';
+import SideNavLayout from './layouts/SideNavLayout';
+import DashboardPage from './pages/dashboard/DashboardPage';
 
 function App() {
   return (
-    <div style={{ paddingBottom: '5rem' }}>
-      <TopNav />
-      <Container>
-        <HomePage />
-      </Container>
-    </div>
+    <>
+      <Route path='/' exact>
+        <NoSideNavLayout>
+          <CreatePage />
+        </NoSideNavLayout>
+      </Route>
+      <Route path='/dashboard' exact>
+        <SideNavLayout>
+          <DashboardPage />
+        </SideNavLayout>
+      </Route>
+    </>
   );
 }
 

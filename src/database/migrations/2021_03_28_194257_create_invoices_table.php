@@ -15,10 +15,13 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->string('company_id')->nullable();
+            $table->string('customer_id')->nullable();
             $table->string('invoice_number');
             $table->date('issued_date');
             $table->date('due_date');
             $table->string('comments');
+            $table->boolean('is_paid');
             $table->timestamps();
             $table->softDeletes();
         });

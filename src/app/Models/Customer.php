@@ -17,19 +17,24 @@ class Customer extends Model
 
     protected $fillable = [
         'id',
-        'invoice_id',
-        'name',
-        'street',
-        'city',
-        'stateProvince',
-        'country',
-        'zipPostal',
-        'phone',
-        'email',
+        'shippingName',
+        'shippingStreet',
+        'shippingCity',
+        'shippingStateProvince',
+        'shippingCountry',
+        'shippingZipPostal',
+        'shippingPhone',
+        'shippingEmail',
+        'billingName',
+        'billingStreet',
+        'billingCity',
+        'billingStateProvince',
+        'billingCountry',
+        'billingZipPostal',
     ];
 
-    public function post()
+    public function invoices()
     {
-        return $this->belongsTo(Invoice::class);
+        return $this->hasMany(Invoice::class);
     }
 }

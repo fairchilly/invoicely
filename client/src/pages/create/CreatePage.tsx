@@ -1,6 +1,5 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 import { v4 as uuid } from 'uuid';
 
 import { Button } from 'semantic-ui-react';
@@ -13,6 +12,7 @@ import { observer } from 'mobx-react-lite';
 import { Invoice } from '../../models/invoice';
 import axios from 'axios';
 import CommentForm from './components/CommentForm';
+import { invoiceSchema } from '../../common/forms/validation/invoiceSchema';
 
 const invoice: Invoice = {
   id: uuid(),
@@ -52,33 +52,7 @@ const invoice: Invoice = {
   comments: '',
 };
 
-const validationSchema = Yup.object({
-  company: Yup.object({
-    name: Yup.string().required('The company name is required'),
-  }),
-  customer: Yup.object({
-    name: Yup.string().required('The customer name is required'),
-  }),
-  items: Yup.array().of(
-    Yup.object({
-      description: Yup.string().required('The item description is required'),
-      units: Yup.string().required('The unit amount is required'),
-      pricePerUnit: Yup.string().required(
-        'The price per unit amount is required'
-      ),
-    })
-  ),
-  fees: Yup.array().of(
-    Yup.object({
-      description: Yup.string().required('The fee description is required'),
-      value: Yup.string().required('The fee value is required'),
-      type: Yup.string().required('The fee type is required'),
-    })
-  ),
-  invoiceNumber: Yup.string().required('The invoice number is required'),
-  issuedDate: Yup.date().required('The issued date is required'),
-  dueDate: Yup.string().required('The due date is required'),
-});
+const validationSchema = invoiceSchema;
 
 const handleFormSubmit = (invoice: Invoice) => {
   // Updated items and fees to multiples of 100
@@ -95,7 +69,7 @@ const handleFormSubmit = (invoice: Invoice) => {
   });
 
   axios
-    .post('http://localhost/api/invoices/generate', invoice, {
+    .post('http://localhost:4000/api/invoices/generate', invoice, {
       responseType: 'blob',
     })
     .then((response) => {
@@ -112,7 +86,7 @@ const handleFormSubmit = (invoice: Invoice) => {
     });
 };
 
-const HomePage = () => {
+const CreatePage = () => {
   return (
     <div>
       <Formik
@@ -144,4 +118,4 @@ const HomePage = () => {
   );
 };
 
-export default observer(HomePage);
+export default observer(CreatePage);

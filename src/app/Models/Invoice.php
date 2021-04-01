@@ -19,21 +19,25 @@ class Invoice extends Model
     protected $casts = [
         'issued_date' => 'date',
         'due_date' => 'date',
+        'is_paid' => 'boolean',
     ];
 
     protected $fillable = [
         'id',
+        'company_id',
+        'customer_id',
         'invoice_number',
         'issued_date',
         'due_date',
         'comments',
+        'is_paid',
     ];
 
     // Helpers
     public function getSubtotalAttribute()
     {
         $subtotal = $this->items->sum(function ($item) {
-            return $item->units * $item->pricePerUnit;
+            return $item->units * $item->price_per_unit;
         });
 
         return $subtotal;
@@ -58,12 +62,12 @@ class Invoice extends Model
     // Relationships
     public function company()
     {
-        return $this->hasOne(Company::class);
+        return $this->belongsTo(Company::class);
     }
 
     public function customer()
     {
-        return $this->hasOne(Customer::class);
+        return $this->belongsTo(Customer::class);
     }
 
     public function fees()

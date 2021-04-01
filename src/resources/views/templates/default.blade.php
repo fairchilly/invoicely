@@ -41,10 +41,10 @@
     </div>
   </div>
   <div class="row" style="padding-top: 3rem;">
-    <div class="col-xs-4">
+    <div class="col-xs-5">
       @include('templates.partials.customer-shipping', ['customer' => $invoice->customer])
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-5">
       @include('templates.partials.customer-billing', ['customer' => $invoice->customer])
     </div>
   </div>
