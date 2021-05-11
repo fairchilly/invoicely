@@ -1,4 +1,6 @@
-<div style="text-align:center"><img src="https://i.imgur.com/jq5An3E.png" /></div>
+<p align="center">
+  <img src="https://i.imgur.com/sv74JHU.png" />
+</p>
 
 #### Purpose
 
