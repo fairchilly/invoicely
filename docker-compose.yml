@@ -9,7 +9,7 @@ services:
     build:
       context: .
       dockerfile: react.dockerfile
-    container_name: 'react'
+    container_name: 'invoicely_react'
     volumes:
       - ./client:/app
       - '/app/node_modules'
@@ -24,7 +24,7 @@ services:
     build:
       context: .
       dockerfile: nginx.dockerfile
-    container_name: 'nginx'
+    container_name: 'invoicely_nginx'
     depends_on:
       - php
       - mysql
@@ -42,7 +42,7 @@ services:
     build:
       context: .
       dockerfile: php.dockerfile
-    container_name: php
+    container_name: 'invoicely_php'
     volumes:
       - ./src:/var/www/html
     networks:
@@ -50,7 +50,7 @@ services:
 
   mysql:
     image: mysql:8
-    container_name: mysql
+    container_name: 'invoicely_mysql'
     ports:
       - 3306:3306
     volumes:
@@ -65,7 +65,7 @@ services:
 
   composer:
     image: composer:latest
-    container_name: composer
+    container_name: 'invoicely_composer'
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
@@ -76,7 +76,7 @@ services:
     build:
       context: .
       dockerfile: php.dockerfile
-    container_name: php
+    container_name: 'invoicely_php'
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
@@ -85,7 +85,7 @@ services:
       - laravel
   npm:
     image: node:13.7
-    container_name: npm
+    container_name: 'invoicely_npm'
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
@@ -97,7 +97,7 @@ services:
     build:
       context: .
       dockerfile: php.dockerfile
-    container_name: phpunit
+    container_name: 'invoicely_phpunit'
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
@@ -107,7 +107,7 @@ services:
 
   redis:
     image: redis:latest
-    container_name: redis
+    container_name: 'invoicely_redis'
     ports:
       - 6379:6379
     networks:
@@ -115,7 +115,7 @@ services:
 
   redisinsight:
     image: 'redislabs/redisinsight:latest'
-    container_name: redisinsight
+    container_name: 'invoicely_redisinsight'
     depends_on:
       - redis
     volumes:
