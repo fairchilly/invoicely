@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\Uuids;
 use App\Models\Invoice;
 
 class Item extends Model
 {
-    use HasFactory, Uuids;
+    use HasFactory;
 
     protected $guarded = [];
 

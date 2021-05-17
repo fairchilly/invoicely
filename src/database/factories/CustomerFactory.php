@@ -23,18 +23,18 @@ class CustomerFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'shippingStreet' => $this->faker->streetAddress,
-            'shippingCity' => $this->faker->city,
-            'shippingStateProvince' => $this->faker->stateAbbr,
-            'shippingCountry' => $this->faker->country,
-            'shippingZipPostal' => $this->faker->postcode,
-            'shippingPhone' => $this->faker->phoneNumber,
-            'shippingEmail' => $this->faker->email,
-            'billingStreet' => $this->faker->streetAddress,
-            'billingCity' => $this->faker->city,
-            'billingStateProvince' => $this->faker->stateAbbr,
-            'billingCountry' => $this->faker->country,
-            'billingZipPostal' => $this->faker->postcode,
+            'shipping_street' => $this->faker->streetAddress,
+            'shipping_city' => $this->faker->city,
+            'shipping_state_province' => $this->faker->stateAbbr,
+            'shipping_country' => $this->faker->country,
+            'shipping_zip_postal' => $this->faker->postcode,
+            'shipping_phone' => $this->faker->phoneNumber,
+            'shipping_email' => $this->faker->email,
+            'billing_street' => $this->faker->streetAddress,
+            'billing_city' => $this->faker->city,
+            'billing_state_province' => $this->faker->stateAbbr,
+            'billing_country' => $this->faker->country,
+            'billing_zip_postal' => $this->faker->postcode,
         ];
     }
 }

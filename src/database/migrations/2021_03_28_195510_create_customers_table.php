@@ -14,20 +14,20 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('name');
-            $table->string('shippingStreet')->nullable();
-            $table->string('shippingCity')->nullable();
-            $table->string('shippingStateProvince')->nullable();
-            $table->string('shippingCountry')->nullable();
-            $table->string('shippingZipPostal')->nullable();
-            $table->string('shippingPhone')->nullable();
-            $table->string('shippingEmail')->nullable();
-            $table->string('billingStreet')->nullable();
-            $table->string('billingCity')->nullable();
-            $table->string('billingStateProvince')->nullable();
-            $table->string('billingCountry')->nullable();
-            $table->string('billingZipPostal')->nullable();
+            $table->string('shipping_street')->nullable();
+            $table->string('shipping_city')->nullable();
+            $table->string('shipping_state_province')->nullable();
+            $table->string('shipping_country')->nullable();
+            $table->string('shipping_zip_postal')->nullable();
+            $table->string('shipping_phone')->nullable();
+            $table->string('shipping_email')->nullable();
+            $table->string('billing_street')->nullable();
+            $table->string('billing_city')->nullable();
+            $table->string('billing_state_province')->nullable();
+            $table->string('billing_country')->nullable();
+            $table->string('billing_zip_postal')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -14,8 +14,8 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('invoice_id');
+            $table->id();
+            $table->integer('invoice_id');
             $table->string('description');
             $table->integer('units');
             $table->integer('price_per_unit');

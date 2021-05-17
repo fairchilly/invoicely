@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\Uuids;
 use App\Models\Company;
 use App\Models\Customer;
 use App\Models\Fee;
@@ -12,7 +11,7 @@ use App\Models\Item;
 
 class Invoice extends Model
 {
-    use HasFactory, Uuids;
+    use HasFactory;
 
     protected $guarded = [];
 
